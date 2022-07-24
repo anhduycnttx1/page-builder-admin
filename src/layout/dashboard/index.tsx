@@ -9,7 +9,7 @@ export default function DashboardLayout({ children }: React.PropsWithChildren<Da
   const [collapsed, setCollapsed] = useState(false)
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout style={{ minHeight: '100vh', minWidth: 1200 }}>
       <DashboardHeader />
       <Layout>
         <MenuDashboardLayout collapsed={collapsed} setCollapsed={setCollapsed} />

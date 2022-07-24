@@ -12,12 +12,14 @@ export default function DashboardHeader({ children }: React.PropsWithChildren<He
     <Space direction="vertical">
       <Button type="text" className="w-full" onClick={() => setIsThemeDark(false)}>
         <Space>
-          <HiOutlineColorSwatch /> <span>Dark theme</span>
+          <HiOutlineColorSwatch />
+          <span>Navbar Light</span>
         </Space>
       </Button>
       <Button type="text" className="w-full" onClick={() => setIsThemeDark(true)}>
         <Space>
-          <HiColorSwatch /> <span>Compact theme</span>
+          <HiColorSwatch />
+          <span>Navbar Dark</span>
         </Space>
       </Button>
     </Space>
@@ -35,7 +37,7 @@ export default function DashboardHeader({ children }: React.PropsWithChildren<He
         left: 0,
         top: 0,
         bottom: 0,
-        zIndex: 10,
+        zIndex: 90,
       }}
     >
       <Row justify="space-between" align="middle" className={isThemeDark ? 'text-white' : 'text-black'}>

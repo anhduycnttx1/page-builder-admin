@@ -1,5 +1,4 @@
-import { Menu, MenuProps, Layout, Button } from 'antd'
-import { userAgent } from 'next/server'
+import { Menu, MenuProps, Layout } from 'antd'
 import React from 'react'
 import { menuPages } from './menu-item'
 
@@ -20,6 +19,7 @@ export default function MenuDashboardLayout(props: MenuDashboardLayoutProps) {
         top: 0,
         bottom: 0,
         maxHeight: '100vh',
+        zIndex: 50,
       }}
       width={200}
       theme="light"
