@@ -44,7 +44,7 @@ export default function DecorationContainer() {
           <Button type="link" className="inline">
             Cập nhật
           </Button>
-          <ButtonModalPreviewPage />
+          <ButtonModalPreviewPage disabled={!record.status} />
         </Space>
       ),
     },
@@ -53,7 +53,7 @@ export default function DecorationContainer() {
   return (
     <>
       <Space style={{ minHeight: 320 }} className="w-full p-5 bg-white" direction="vertical">
-        <Row justify="space-between" align="middle">
+        <Row justify="space-between" align="middle" className="my-3">
           <Typography.Title level={4}>Danh sách các trang</Typography.Title>
           <Space size="small">
             <Button type="primary" icon={<PlusOutlined />}>
@@ -70,7 +70,7 @@ export default function DecorationContainer() {
   )
 }
 
-function ButtonModalPreviewPage() {
+function ButtonModalPreviewPage({ disabled }: any) {
   const [isModalVisible, setIsModalVisible] = useState(false)
 
   const urlWebPreview = 'https://www.allbirds.com/'
@@ -85,10 +85,9 @@ function ButtonModalPreviewPage() {
   const handleCancel = () => {
     setIsModalVisible(false)
   }
-
   return (
     <>
-      <Button type="link" className="inline" onClick={showModal}>
+      <Button type="link" className="inline" onClick={showModal} disabled={disabled}>
         Xem mẫu
       </Button>
       <Modal
