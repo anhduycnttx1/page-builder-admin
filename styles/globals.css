@@ -1,0 +1,29 @@
+@tailwind components;
+@tailwind utilities;
+
+@import url('./btn-custom.css');
+
+body {
+  min-height: 100vh;
+  background: #fafafa;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
+}
+
+.preview-app-mobile {
+  background: url(https://deo.shopeemobile.com/shopee/shopee-seller-live-sg/rootpages/static/modules/decoration/image/phone-shape.3d09bb4.png);
+  position: relative;
+  width: 342px;
+  height: 500px;
+  background-size: 100%;
+  z-index: 100;
+}
+
+.preview-app-pc {
+  position: relative;
+  width: 530px;
+  height: 340px;
+  background: url(https://deo.shopeemobile.com/shopee/shopee-seller-live-sg/rootpages/static/modules/decoration/image/desktop.71b5173.png) no-repeat;
+  background-size: 100%;
+  z-index: 100;
+}
