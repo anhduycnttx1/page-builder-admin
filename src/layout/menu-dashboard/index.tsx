@@ -20,6 +20,7 @@ export default function MenuDashboardLayout(props: MenuDashboardLayoutProps) {
         bottom: 0,
         maxHeight: '100vh',
         zIndex: 50,
+        borderRight: '1px solid rgb(203 213 225)',
       }}
       width={200}
       theme="light"

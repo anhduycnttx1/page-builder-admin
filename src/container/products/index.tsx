@@ -16,14 +16,14 @@ export default function ProductContainer() {
     setTimeout(() => setIsLoading(false), 3000)
   }
   return (
-    <>
+    <div className="p-8">
       {isLoading ? (
         <Row style={{ minHeight: 300, width: '100%' }} align="middle" justify="center">
           <Spin size="large" tip="loading..." />
         </Row>
       ) : (
         <Space direction="vertical" style={{ width: '100%' }}>
-          <Row className="px-5 py-3">
+          <Row className="pb-3">
             <Breadcrumb className="cursor-pointer ">
               <Breadcrumb.Item>
                 <Link href="/">
@@ -32,7 +32,7 @@ export default function ProductContainer() {
                   </a>
                 </Link>
               </Breadcrumb.Item>
-              <Breadcrumb.Item>
+              <Breadcrumb.Item className="font-medium">
                 <Link href="/portal/product/list">
                   <a>Sản phẩm</a>
                 </Link>
@@ -70,7 +70,7 @@ export default function ProductContainer() {
           </Space>
         </Space>
       )}
-    </>
+    </div>
   )
 }
 

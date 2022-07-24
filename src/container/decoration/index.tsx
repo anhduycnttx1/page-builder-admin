@@ -2,6 +2,7 @@ import { Button, Row, Modal, Space, Typography, Tabs } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
 import TableDecoration from './table-decoration'
 import { useState } from 'react'
+import Link from 'next/link'
 
 export default function DecorationContainer() {
   const columns = [
@@ -51,14 +52,19 @@ export default function DecorationContainer() {
   ]
 
   return (
-    <>
+    <div className="p-8">
       <Space style={{ minHeight: 320 }} className="w-full p-5 bg-white" direction="vertical">
         <Row justify="space-between" align="middle" className="my-3">
           <Typography.Title level={4}>Danh sách các trang</Typography.Title>
           <Space size="small">
-            <Button type="primary" icon={<PlusOutlined />}>
-              Thêm Mới
-            </Button>
+            <Link href="/portal/decoration/setup/new?tag=page-mb">
+              <a>
+                <Button htmlType="button" type="primary" icon={<PlusOutlined />}>
+                  Trang mới
+                </Button>
+              </a>
+            </Link>
+
             <Button type="primary" danger>
               Xoá
             </Button>
@@ -66,7 +72,7 @@ export default function DecorationContainer() {
         </Row>
         <TableDecoration columns={columns} />
       </Space>
-    </>
+    </div>
   )
 }
 

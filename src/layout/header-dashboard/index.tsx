@@ -30,8 +30,9 @@ export default function DashboardHeader({ children }: React.PropsWithChildren<He
   const countNotify = 10
   return (
     <Layout.Header
-      className={`shadow-md header ${isThemeDark ? 'bg-gray-800' : 'bg-white'}`}
+      className={`shadow-sm header ${isThemeDark ? 'bg-gray-800' : 'bg-white'}`}
       style={{
+        borderBottom: '1px solid rgb(203 213 225)',
         width: '100%',
         position: 'fixed',
         left: 0,
