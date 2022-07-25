@@ -1,22 +1,47 @@
-import { Button, Row, Space, Typography } from 'antd'
-import BannerManyImage from '../../../components/decoration/SectionBannerManyImage'
-import BannerOneImage from '../../../components/decoration/SectionBannerOneImage'
-import BannerSpinImage from '../../../components/decoration/SectionBannerSpin'
-import SectionTesxt from '../../../components/decoration/SectionText'
-import SectionVideo from '../../../components/decoration/SectionVideo'
+import { Button, Empty, Row, Space, Typography } from 'antd'
 import SiderInformationSetupPage from './sider-setup/sider-information'
 import SiderSectionSetupPage from './sider-setup/sider-section'
+import { useDrop } from 'react-dnd'
+import { useState } from 'react'
+
+type BoardItemType = {
+  id: string
+  element: any
+}
 
 export default function DecorationSetupContainer() {
+  const [board, setBoard] = useState<BoardItemType[]>([])
+
+  const [{ isOver }, drop] = useDrop(() => ({
+    accept: 'section',
+    drop: (item: BoardItemType) => addSectionToBoard(item),
+    collect: (monitor) => ({
+      isOver: !!monitor.isOver(),
+    }),
+  }))
+
+  const addSectionToBoard = (item: BoardItemType) => {
+    setBoard((board) => [...board, item])
+    console.log(board)
+  }
+
   return (
     <>
       <Row
         className="bg-white h-[64px] px-6 shadow-sm"
         align="middle"
         justify="space-between"
-        style={{ borderBottom: '1px solid rgb(203 213 225)', position: 'fixed', right: 0, width: 'calc(100% - 200px)' }}
+        style={{
+          borderBottom: '1px solid rgb(203 213 225)',
+          position: 'fixed',
+          right: 0,
+          width: 'calc(100%)',
+          zIndex: 50,
+        }}
       >
-        <Typography.Title level={4}>Thiết Kế Trang Mới</Typography.Title>
+        <Typography.Title level={4} className="mx-[200px]">
+          Thiết kế trang mới
+        </Typography.Title>
         <Space>
           <Button>Xem trước</Button>
           <Button type="primary">Áp dụng</Button>
@@ -32,20 +57,19 @@ export default function DecorationSetupContainer() {
           <SiderInformationSetupPage />
         </Space>
         {/* Content */}
-        <Row justify="center" className="mx-[200px] w-full mt-5">
-          <Space direction="vertical" className="w-[375px] shadow-lg">
-            <SectionTesxt />
-            <BannerSpinImage />
-            <SectionVideo />
-            {new Array(4).fill(0).map((v, i) => (
-              <>
-                <BannerOneImage key={i} />
-                <SectionTesxt />
-                <BannerManyImage />
-              </>
-            ))}
+
+        <div ref={drop} className="mx-[200px] w-full mt-5 flex justify-center">
+          <Space className="w-[375px] min-h-[460px] shadow-lg" direction="vertical">
+            {board[0] ? (
+              board.map((item: any, index: any) => {
+                return <div key={index}>{item.element}</div>
+              })
+            ) : (
+              <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} className="mt-40" />
+            )}
           </Space>
-        </Row>
+        </div>
+
         {/* Sibar-left */}
         <Space
           direction="vertical"
