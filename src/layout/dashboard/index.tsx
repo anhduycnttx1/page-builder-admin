@@ -22,7 +22,7 @@ export default function DashboardLayout({ children }: React.PropsWithChildren<Da
           }}
         >
           <Layout.Content className="">{children}</Layout.Content>
-          <Layout.Footer style={{ textAlign: 'center' }}>DogiApp ©2022 Created by duydoit</Layout.Footer>
+          <Layout.Footer style={{ textAlign: 'center' }}>PageBuilder ©2022 Created by duydoit</Layout.Footer>
         </Layout>
       </Layout>
       <Button
