@@ -58,7 +58,7 @@ function ContectPopover({ setImage, image }: any) {
   const [currentListFile, setCurrentListFile] = useState<UploadFile[]>([])
 
   const onChange: UploadProps['onChange'] = ({ file, fileList }) => {
-    const url = URL.createObjectURL(file.originFileObj)
+    const url = URL.createObjectURL(file.originFileObj as Blob)
     setImage(url)
   }
   return (
