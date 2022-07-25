@@ -1,6 +1,11 @@
 import { Button, Row, Space, Typography } from 'antd'
-import SiderLeftSetupPage from './sider-setup/sider-left'
-import SiderRightSetupPage from './sider-setup/sider-right'
+import BannerManyImage from '../../../components/decoration/SectionBannerManyImage'
+import BannerOneImage from '../../../components/decoration/SectionBannerOneImage'
+import BannerSpinImage from '../../../components/decoration/SectionBannerSpin'
+import SectionTesxt from '../../../components/decoration/SectionText'
+import SectionVideo from '../../../components/decoration/SectionVideo'
+import SiderInformationSetupPage from './sider-setup/sider-information'
+import SiderSectionSetupPage from './sider-setup/sider-section'
 
 export default function DecorationSetupContainer() {
   return (
@@ -21,16 +26,23 @@ export default function DecorationSetupContainer() {
         {/* Sibar-left */}
         <Space
           direction="vertical"
-          className="bg-white min-h-[260px] min-w-[200px]"
+          className="bg-white min-h-[260px] min-w-[233px]"
           style={{ height: 'calc(100% - 128px)', overflow: 'auto', position: 'fixed' }}
         >
-          <SiderLeftSetupPage />
+          <SiderInformationSetupPage />
         </Space>
         {/* Content */}
         <Row justify="center" className="mx-[200px] w-full mt-5">
           <Space direction="vertical" className="w-[375px] shadow-lg">
-            {new Array(34).fill(0).map((v, i) => (
-              <div key={i}>test</div>
+            <SectionTesxt />
+            <BannerSpinImage />
+            <SectionVideo />
+            {new Array(4).fill(0).map((v, i) => (
+              <>
+                <BannerOneImage key={i} />
+                <SectionTesxt />
+                <BannerManyImage />
+              </>
             ))}
           </Space>
         </Row>
@@ -40,7 +52,7 @@ export default function DecorationSetupContainer() {
           className="bg-white min-h-[260px] min-w-[200px]"
           style={{ height: 'calc(100% - 128px)', overflow: 'auto', position: 'fixed', right: 0 }}
         >
-          <SiderRightSetupPage />
+          <SiderSectionSetupPage />
         </Space>
       </Row>
     </>
